@@ -8,7 +8,7 @@ let createNote
 const notesArray = []
 const {v4 : uuidv4} = require('uuid')
 
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -72,15 +72,21 @@ app.get("/api/notes", (req, res) => {
        res.json(err)
       } else{
         parsedNotes = JSON.parse(data)
+        const filteredNotes = parsedNotes.filter(note => {
+          note.id !== id 
+        })
+        fs.writeFile("db/db.json", JSON.stringify(filteredNotes), (err) => {
+         if (err) console.error(err);
+         else {
+           res.status(200).json({
+             message: "Success",
+           });
+         }
+        })
       }
      })
 
-     const filteredNotes = parsedNotes.filter(note => {
-       note.id !== id 
-     })
-     fs.writeFile("db/db.json", JSON.stringify(filteredNotes), (err, data) => {
-      console.error(err);
-     })
+     
 
    }) 
 
