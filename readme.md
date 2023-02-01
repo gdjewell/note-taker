@@ -4,6 +4,9 @@
 
 This app allows you to enter personal notes that are then added to the left side panel. You are also able to delete notes that you have stored. 
 
+[Published page](https://note-taking-11.herokuapp.com/)
+[Repo URL](https://github.com/gdjewell/note-taker)
+
 ![Brief Demo](./public/assets/images/demovideo.gif)
 
 ## Table of Contents
