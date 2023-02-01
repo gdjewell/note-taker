@@ -5,7 +5,6 @@ const fs = require('fs')
 let storedNotes;
 let parsedNotes = require('./db/db.json')
 let createNote
-const notesArray = []
 const {v4 : uuidv4} = require('uuid')
 
 const PORT = process.env.PORT || 3001;
